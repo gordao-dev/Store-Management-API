@@ -5,6 +5,7 @@ import {
   OptinalLimit,
   OptinalPage,
   OptionalAnyString,
+  OptionalNumber,
   RequiredAnyString,
   RequiredEnum,
   RequiredNumber,
@@ -20,10 +21,21 @@ class ProductsRoutes {
     const producstController = new ProductsControllers();
 
     productsRoutes.get(
-      "/:id",
+      "/ibge",
       celebrate({
         [Segments.PARAMS]: {
-          id: Joi.number(),
+          id: RequiredNumber,
+        },
+      }),
+      producstController.get
+    );
+
+    productsRoutes.post(
+      "/:id",
+      celebrate({
+        [Segments.BODY]: {
+          id: RequiredNumber,
+          name: RequiredAnyString,
         },
       }),
       producstController.show

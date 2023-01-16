@@ -1,17 +1,19 @@
 import { Router } from "express";
-
+import CityRoutes from "./city.routes";
 import ProductsRoutes from "./Products.routes";
 
-class ProductsHttp {
+class Http {
   public register(): Router {
-    const productsHttp = Router();
+    const routesHttp = Router();
 
     const productsRoutes = new ProductsRoutes();
+    const cityRoutes = new CityRoutes();
 
-    productsHttp.use("/", productsRoutes.register());
+    routesHttp.use("/products", productsRoutes.register());
+    routesHttp.use("/cities", cityRoutes.register());
 
-    return productsHttp;
+    return routesHttp;
   }
 }
 
-export default ProductsHttp;
+export default Http;

@@ -4,7 +4,7 @@ import CreateProductService from "@Modules/Products/Services/CreateProductServic
 import DeleteProductService from "@Modules/Products/Services/DeleteProductService";
 import UpdateProductService from "@Modules/Products/Services/UpdateProductService";
 import ShowProductService from "@Modules/Products/Services/ShowProductService";
-
+import ShowCityService from "@Modules/Products/Services/ShowCountyService";
 class ProductsControllers {
   public async create(
     request: Request,
@@ -64,6 +64,20 @@ class ProductsControllers {
     await deleteProductService.execute({
       id: params.id,
     });
+
+    return response.status(204).json();
+  }
+
+  public async get(
+    request: Request,
+    response: Response,
+    _: NextFunction
+  ): Promise<Response> {
+    const { params } = request;
+
+    const showCoutiesService = container.resolve(ShowCityService);
+
+    await showCoutiesService.execute(Number(params.id));
 
     return response.status(204).json();
   }
