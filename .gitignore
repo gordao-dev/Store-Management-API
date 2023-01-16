@@ -1,0 +1,14 @@
+# Node
+node_modules
+
+# Yarn
+yarn-error.log
+yarn.lock
+
+# App
+.env
+
+# Database
+./psqldata
+ormconfig.json
+docker-compose.yml

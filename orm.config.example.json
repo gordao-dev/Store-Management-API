@@ -1,0 +1,21 @@
+
+[
+    {
+      "name": "default",
+      "type": "postgres",
+      "host": "localhost",
+      "port": "",
+      "username": "",
+      "password": "",
+      "database": "storeManagement",
+      "entities": [
+        "./src/Modules/**/Entities/*.ts"
+      ],
+      "migrations": [
+        "./src/Shared/Infra/TypeORM/Migrations/*.ts"
+      ],
+      "cli": {
+        "migrationsDir": "./src/Shared/Infra/TypeORM/Migrations"
+      }
+    }
+  ]
