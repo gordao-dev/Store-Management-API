@@ -8,6 +8,7 @@
     "dev": "NODE_ENV=development ts-node-dev -r tsconfig-paths/register --ignore node_modules src/Shared/Infra/Http/index.ts"
   },
   "dependencies": {
+    "axios": "^1.2.2",
     "celebrate": "^15.0.1",
     "class-transformer": "^0.4.0",
     "cors": "^2.8.5",
