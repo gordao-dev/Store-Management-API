@@ -67,20 +67,6 @@ class ProductsControllers {
 
     return response.status(204).json();
   }
-
-  public async get(
-    request: Request,
-    response: Response,
-    _: NextFunction
-  ): Promise<Response> {
-    const { params } = request;
-
-    const showCoutiesService = container.resolve(ShowCityService);
-
-    await showCoutiesService.execute(Number(params.id));
-
-    return response.status(204).json();
-  }
 }
 
 export default ProductsControllers;

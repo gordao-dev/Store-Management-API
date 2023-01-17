@@ -21,33 +21,10 @@ class ProductsRoutes {
     const producstController = new ProductsControllers();
 
     productsRoutes.get(
-      "/ibge",
+      "/:id",
       celebrate({
         [Segments.PARAMS]: {
           id: RequiredNumber,
-        },
-      }),
-      producstController.get
-    );
-
-    productsRoutes.post(
-      "/:id",
-      celebrate({
-        [Segments.BODY]: {
-          id: RequiredNumber,
-          name: RequiredAnyString,
-        },
-      }),
-      producstController.show
-    );
-
-    productsRoutes.get(
-      "/",
-      celebrate({
-        [Segments.QUERY]: {
-          page: OptinalPage,
-          limit: OptinalLimit,
-          orderBy: OptionalAnyString,
         },
       }),
       producstController.show
@@ -64,6 +41,17 @@ class ProductsRoutes {
         },
       }),
       producstController.create
+    );
+
+    productsRoutes.get(
+      "/:id",
+      celebrate({
+        [Segments.BODY]: {
+          id: RequiredNumber,
+          name: RequiredAnyString,
+        },
+      }),
+      producstController.show
     );
 
     productsRoutes.put(
