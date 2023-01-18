@@ -14,13 +14,11 @@
 
    `npm install` or `yarn install`
 
-2. copy `docker-compose.yml` located at the root folder to a new `docker-compose.override.yml` file or update `docker-compose.yml` itself within the credentials that you want to create the containers.
+2. update `docker-compose.yml` within the credentials that you want to create the containers and then run with docker-compose up.
 
 3. Set up docker containers:
 
-   `docker-compose -f docker-overrider.yml up -d`
-
-   or `docker-compose up -d` if you updated `docker-compose.yml`
+   `docker-compose.yml up -d`
 
 4. Copy `orm.config.example.json` located at the root folder to a new `orm.config.json` file and fill it with the credentials that you have set up when creating the containers.
 
